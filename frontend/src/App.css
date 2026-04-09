@@ -1,0 +1,280 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+.sidebar {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Prevents sidebar from collapsing */
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.upload-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.upload-btn {
+  background: #4f46e5;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+}
+
+.upload-btn:hover { background: #4338ca; transform: translateY(-2px); }
+
+.status-text { font-size: 0.85rem; color: #a5b4fc; min-height: 1.2rem; }
+
+.file-list { 
+  margin-top: 2rem; 
+  flex-grow: 1; 
+  overflow-y: auto; 
+  flex-basis: 0; 
+}
+
+.file-list::-webkit-scrollbar { width: 4px; }
+.file-list::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+
+.file-list h3 {
+  font-size: 1rem;
+  color: #94a3b8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.empty-text { font-size: 0.9rem; color: #64748b; font-style: italic; }
+
+.file-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  word-break: break-all;
+  white-space: normal;
+}
+
+.chat-area {
+  flex-grow: 1;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.chat-header h2 { margin: 0 0 0.25rem 0; font-size: 1.4rem; color: #f8fafc; }
+.chat-header p { margin: 0; color: #64748b; font-size: 0.9rem; }
+
+.messages-view {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.messages-view::-webkit-scrollbar { width: 6px; }
+.messages-view::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+
+.welcome { margin: auto; font-size: 1.2rem; color: #475569; text-align: center; }
+
+.message-wrapper { display: flex; flex-direction: column; max-width: 80%; }
+.message-wrapper.user { align-self: flex-end; align-items: flex-end; }
+.message-wrapper.bot { align-self: flex-start; align-items: flex-start; }
+.message-wrapper.error .message-bubble { background: #991b1b; color: white; }
+
+.message-bubble {
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user .message-bubble {
+  background: #3b82f6;
+  color: #fff;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.bot .message-bubble {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  border-bottom-left-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.source-badge {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.loading-dot { align-self: flex-start; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 1rem; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+
+.input-area {
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  gap: 1rem;
+}
+
+.input-area input {
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
+  border-radius: 9999px;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-area input:focus { border-color: #3b82f6; }
+
+.input-area button {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: white;
+  border: none;
+  padding: 0 2.5rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.input-area button:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+.input-area button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.voice-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  padding: 0 !important;
+}
+
+.voice-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.voice-btn.recording {
+  background: #ef4444;
+  animation: pulse 1.5s infinite;
+  border-color: #f87171;
+}
+
+.voice-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.message-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.message-actions .source-badge {
+  margin-top: 0;
+}
+
+.lang-badge {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c4b5fd;
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.audio-btn {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.audio-btn:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}
+
+.audio-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
